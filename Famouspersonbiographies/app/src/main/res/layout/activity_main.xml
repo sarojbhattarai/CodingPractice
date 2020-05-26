@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/margin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/margin_layout">
+
+        <Button
+            android:id="@+id/button_allpeople"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:text="@string/all_people"
+            android:textAllCaps="false"
+            android:textSize="16sp"></Button>
+
+
+        <Button
+            android:id="@+id/button_favourite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_allpeople"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:text="@string/Favourites"
+            android:textAllCaps="false"
+            android:textSize="16sp"></Button>
+
+        <Button
+            android:id="@+id/button_requestmore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_favourite"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:text="@string/request_more"
+            android:textAllCaps="false"
+            android:textSize="16sp"></Button>
+
+        <ImageView
+            android:id="@+id/imageview_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_requestmore"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/info">
+        </ImageView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
