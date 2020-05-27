@@ -15,14 +15,16 @@ public class FamousPersons {
     String imageUrl;
     String fieldOfWork;
     String shortdesc;
+    String longdesc;
     boolean isEnabled;
 
-    public FamousPersons(int id, String name, String imageUrl, String shortdesc, String fieldOfWork) {
+    public FamousPersons(int id, String name, String imageUrl, String shortdesc, String fieldOfWork,String longdesc) {
         this.imageUrl = imageUrl;
         this.id = id;
         this.name = name;
         this.fieldOfWork = fieldOfWork;
         this.shortdesc = shortdesc;
+        this.longdesc = longdesc;
         isEnabled = false;
     }
 
@@ -64,6 +66,14 @@ public class FamousPersons {
 
     public void setFieldOfWork(String fieldOfWork) {
         this.fieldOfWork = fieldOfWork;
+    }
+
+    public String getLongdesc() {
+        return longdesc;
+    }
+
+    public void setLongdesc(String longdesc) {
+        this.longdesc = longdesc;
     }
 
     public boolean isEnabled() {
