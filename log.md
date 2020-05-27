@@ -11,3 +11,17 @@
 **Link to work:** [Famous Person Biographies App](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/Famouspersonbiographies)
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+
+
+### Day 1: May 27, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Added feature to navigate from Card View to detail information. Done a layout that will be able to provide user with favourite option.
+
+**Thoughts:** Learnt the concepts of Singleton Class in Java. Lot of coding with so much errors. Had some trouble to implement the logic. Decided to complete it any how on Day 2.
+
+**Link to work:** [Famous Person Biographies App](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/Famouspersonbiographies)
+
+----------------------------------------------------------------------------------------------------------------------------
