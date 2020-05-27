@@ -1,6 +1,7 @@
 package np.com.sarojb.famouspersonbiographies;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,16 +33,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Glide.with(mContext).asBitmap().load(detailofpersons.get(position).getImageUrl()).into(holder.imageview_photo);
         holder.textview_name.setText(detailofpersons.get(position).getName());
         holder.textview_fieldofwork.setText(detailofpersons.get(position).getFieldOfWork());
         holder.textview_shortdesc.setText(detailofpersons.get(position).getShortdesc());
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, IndividualActivity.class);
+                intent.putExtra("ID",detailofpersons.get(position).getId());
+                mContext.startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
     public int getItemCount() {
-        return detailofpersons.size();
+            return detailofpersons.size();
     }
 
     public void setDetailofpersons(ArrayList<FamousPersons> detailofpersons) {
@@ -59,6 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            card = itemView.findViewById(R.id.card);
             imageview_photo = itemView.findViewById(R.id.imageview_photo);
             textview_name = itemView.findViewById(R.id.textview_name);
             textview_shortdesc = itemView.findViewById(R.id.textview_shortdesc);

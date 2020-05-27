@@ -52,6 +52,5 @@
                 android:textColor="?android:attr/textColorSecondary" />
         </LinearLayout>
 
-
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

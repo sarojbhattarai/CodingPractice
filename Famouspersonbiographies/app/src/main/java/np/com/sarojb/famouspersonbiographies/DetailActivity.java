@@ -1,16 +1,22 @@
 package np.com.sarojb.famouspersonbiographies;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
     private RecyclerView view_recyclerview;
     private RecyclerViewAdapter adapter;
+    AllData data = new AllData();
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +26,7 @@ public class DetailActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapter(this);
         view_recyclerview.setAdapter(adapter);
         view_recyclerview.setLayoutManager(new LinearLayoutManager(this));
-        ArrayList<FamousPersons> famousPerson = new ArrayList<>();
-        famousPerson.add(new FamousPersons(1, "AlbertEinstein", "https://cdn.mos.cms.futurecdn.net/c7dppKDbG3JXuMfybV5tUX-320-80.jpg", "Genius", "Science"));
-        adapter.setDetailofpersons(famousPerson);
+        adapter.setDetailofpersons(AllData.getFamousPerson());
     }
+
 }
