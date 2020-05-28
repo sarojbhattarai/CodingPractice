@@ -25,3 +25,18 @@
 **Link to work:** [Famous Person Biographies App](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/Famouspersonbiographies)
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+
+### Day 2: May 27, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Added feature of Database (SQLite) to store and retrive data. 
+
+**Thoughts:** Learnt the concepts of SQLite database in Java. Hard times removing data from Array List in order to fetch data from Database. Felt to do more homework before coding. Phew!! too much error to handle and need to relearn the concept.
+
+**Link to work:** [Famous Person Biographies App](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/Famouspersonbiographies)
+
+**Tomorrows' Agenda:** Complete the app completely || Building a simple RESTFUL API in NODE.
+
+----------------------------------------------------------------------------------------------------------------------------

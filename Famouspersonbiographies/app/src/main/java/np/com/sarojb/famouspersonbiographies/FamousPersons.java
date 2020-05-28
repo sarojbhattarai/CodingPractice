@@ -18,15 +18,6 @@ public class FamousPersons {
     String longdesc;
     boolean isEnabled;
 
-    public FamousPersons(int id, String name, String imageUrl, String shortdesc, String fieldOfWork,String longdesc) {
-        this.imageUrl = imageUrl;
-        this.id = id;
-        this.name = name;
-        this.fieldOfWork = fieldOfWork;
-        this.shortdesc = shortdesc;
-        this.longdesc = longdesc;
-        isEnabled = false;
-    }
 
     public String getShortdesc() {
         return shortdesc;
@@ -81,7 +72,7 @@ public class FamousPersons {
     }
 
     public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
+        isEnabled = false;
     }
 
     @Override
