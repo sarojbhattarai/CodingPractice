@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -19,12 +20,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     String databaseQuery = "CREATE TABLE \"USER\" (\n" +
             "\t\"id\"\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-            "\t\"name\"\tTEXT NOT NULL UNIQUE,\n" +
+            "\t\"name\"\tTEXT UNIQUE,\n " +
             "\t\"imageUrl\"\tTEXT,\n" +
             "\t\"fieldOfWork\"\tTEXT,\n" +
             "\t\"shortDesc\"\tTEXT,\n" +
             "\t\"longDesc\"\tTEXT,\n" +
-            "\t\"isFavourite\"\tTEXT DEFAULT \"true\"\n" +
+            "\t\"isFavourite\"\tINTEGER DEFAULT 0\n" +
             ");";
 
     public DatabaseHelper(@Nullable Context context) {
@@ -34,6 +35,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void insertData(ContentValues contentValues) {
         getWritableDatabase().insert("USER", "", contentValues);
+    }
+
+    public void updateTable(int id,int value){
+       String query = "UPDATE USER SET isFavourite ="+value+" WHERE id = "+id;
+        getWritableDatabase().execSQL(query);
+        Log.e("INISDE UPDATED", "updateTable: ");
     }
 
 
@@ -55,7 +62,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             fp.fieldOfWork = cursor.getString(cursor.getColumnIndex("fieldOfWork"));
             fp.shortdesc = cursor.getString(cursor.getColumnIndex("shortDesc"));
             fp.longdesc = cursor.getString(cursor.getColumnIndex("longDesc"));
-            fp.isEnabled = Boolean.valueOf(cursor.getString(cursor.getColumnIndex("isFavourite")));
+            fp.isFavourite = Integer.valueOf(cursor.getString(cursor.getColumnIndex("isFavourite")));
             list.add(fp);
         }
         cursor.close();

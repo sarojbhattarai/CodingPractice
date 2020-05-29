@@ -70,7 +70,7 @@
                         android:id="@+id/individual_imageview_favouritebutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/fav_before_clicked"></ImageView>
+                        android:src="@drawable/fav_before_clicked" />
                 </LinearLayout>
 
 

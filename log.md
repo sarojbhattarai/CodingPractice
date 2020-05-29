@@ -27,7 +27,7 @@
 ----------------------------------------------------------------------------------------------------------------------------
 
 
-### Day 2: May 27, 2020
+### Day 2: May 28, 2020
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -37,6 +37,18 @@
 
 **Link to work:** [Famous Person Biographies App](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/Famouspersonbiographies)
 
-**Tomorrows' Agenda:** Complete the app completely || Building a simple RESTFUL API in NODE.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+### Day 3: May 29, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: First touch on restful API. Worked on inserting data fetching data from SQLite database
+
+**Thoughts:** Had a hard time building the app. Still couldn't figure out. Started to build a restful api for future library project.
+
+**Link to work:** [Famous Person Biographies App][NODE API PRACTICE](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/nodeapi
+
 
 ----------------------------------------------------------------------------------------------------------------------------

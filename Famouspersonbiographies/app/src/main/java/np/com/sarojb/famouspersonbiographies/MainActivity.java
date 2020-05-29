@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,17 +26,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         databaseHelper = new DatabaseHelper(this);
-        /*
-        Inserting Data to the database
-        famousPerson.add(new FamousPersons(1, "Albert Einstein", "https://www.nobelprize.org/images/einstein-12923-portrait-medium.jpg", "Genius", "Science", "ONe of the brilliant mind of 20th century. His work to theory of relativity is pheonmenol."));
-        famousPerson.add(new FamousPersons(2, "Saroj Bhattarai", "https://avatars2.githubusercontent.com/u/24388126?s=460&u=aae9af7c00dd6299cf9f4520678e256437e695ff&v=4", "Programmer", "Software Engineering", "One of the pioneer in Software Engineering in Nepal"));         */
-
         ContentValues contentValues1 = new ContentValues();
         contentValues1.put("name","Albert Bahadur");
         contentValues1.put("imageUrl","https://www.nobelprize.org/images/einstein-12923-portrait-medium.jpg");
         contentValues1.put("fieldOfWork","Physics");
         contentValues1.put("shortDesc","Math");
         contentValues1.put("longDesc","20th century");
+        contentValues1.put("isFavourite",1);
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("name","Shyam Bahadur");

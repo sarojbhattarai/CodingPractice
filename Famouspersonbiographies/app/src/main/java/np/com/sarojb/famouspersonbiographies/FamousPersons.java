@@ -16,8 +16,7 @@ public class FamousPersons {
     String fieldOfWork;
     String shortdesc;
     String longdesc;
-    boolean isEnabled;
-
+    int isFavourite = 0;
 
     public String getShortdesc() {
         return shortdesc;
@@ -67,12 +66,12 @@ public class FamousPersons {
         this.longdesc = longdesc;
     }
 
-    public boolean isEnabled() {
-        return isEnabled;
+    public int getIsFavourite() {
+        return isFavourite;
     }
 
-    public void setEnabled(boolean enabled) {
-        isEnabled = false;
+    public void setIsEnabled(int isEnabled) {
+        this.isFavourite = isFavourite;
     }
 
     @Override
@@ -81,7 +80,7 @@ public class FamousPersons {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", fieldOfWork='" + fieldOfWork + '\'' +
-                ", isEnabled=" + isEnabled +
+                ", isEnabled=" + isFavourite +
                 '}';
     }
 }
