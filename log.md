@@ -48,7 +48,20 @@
 
 **Thoughts:** Had a hard time building the app. Still couldn't figure out. Started to build a restful api for future library project.
 
-**Link to work:** [Famous Person Biographies App][NODE API PRACTICE](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/nodeapi
+**Link to work:** [Famous Person Biographies App][NODE API PRACTICE](https://github.com/sarojbhattarai/saroj---100-days-of-code/tree/master/nodeapi)
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+### Day 4: May 30, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Connect my API to the MongoDb. Able to retrive and Post data. (GET AND POST) using Mongoose from MongoDB
+
+**Thoughts:** Learnt too much about Express. Different routing techniques, connecting to database. It was funday.
+
+**Link to work:** [NODE API PRACTICE](https://github.com/sarojbhattarai/saroj---100-days-of-code/tree/master/nodeapi)
 
 
 ----------------------------------------------------------------------------------------------------------------------------
