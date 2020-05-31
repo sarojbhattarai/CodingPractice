@@ -5,9 +5,18 @@ const mongoose = require("mongoose");
 const Product = require("../models/products");
 
 router.get("/", (req, res, next) => {
-  res.status(200).json({
-    message: "Inside GET REQUEST",
-  });
+  Product.find()
+    .exec()
+    .then((docs) => {
+      console.log(docs);
+      res.status(200).json(docs);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
 });
 
 router.post("/", (req, res, next) => {
@@ -24,16 +33,16 @@ router.post("/", (req, res, next) => {
     .then((result) => {
       console.log(result);
       res.status(201).json({
-          message:"Handling Post request to /products",
-          createdProduct:result
+        message: "Handling Post request to /products",
+        createdProduct: result,
       });
     })
-    .catch(err=>{
+    .catch((err) => {
       console.log(err);
       res.status(500).json({
-        error:err
-      })
-    }); 
+        error: err,
+      });
+    });
 });
 
 router.get("/:productID", (req, res, next) => {
@@ -41,8 +50,14 @@ router.get("/:productID", (req, res, next) => {
   Product.findById(id)
     .exec()
     .then((doc) => {
-      console.log(doc);
-      res.status(200).json(doc);
+      console.log("From Database", doc);
+      if (doc) {
+        res.status(200).json(doc);
+      } else {
+        res.status(404).json({
+          message: "ID is not valid",
+        });
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -59,16 +74,44 @@ router.post("/:productID", (req, res, next) => {
   });
 });
 
-router.delete("/", (req, res, next) => {
-  res.status(200).json({
-    message: "DELETED. BYE BYE",
-  });
+router.delete("/:productID", (req, res, next) => {
+  const id = req.params.productID;
+  Product.remove({ _id: id })
+    .exec()
+    .then((res) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
 });
 
-router.patch("/", (req, res, next) => {
-  res.status(201).json({
-    message: "UPDATED SUCCESSFULLY",
-  });
+router.patch("/:productID", (req, res, next) => {
+  id = req.params.productID;
+  const updateOps = {};
+  for (const ops of req.body) {
+    updateOps[ops.propName] = ops.value;
+  }
+  Product.updateOne(
+    {
+      _id: id,
+    },
+    { $set: updateOps }
+  )
+    .exec()
+    .then((result) => {
+      console.log(result);
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
 });
 
 module.exports = router;

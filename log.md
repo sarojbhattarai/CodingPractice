@@ -65,3 +65,17 @@
 
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+
+### Day 5: May 31, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Connect my API to the MongoDb. Able to retrive and Post data. (PATCH AND DELETE) using Mongoose from MongoDB
+
+**Thoughts:** Still hard time on database on Android. Spent lot of time there for nothing in return. Make my api to handle PATCH and DELETE requests. 
+
+**Link to work:** [NODE API PRACTICE](https://github.com/sarojbhattarai/saroj---100-days-of-code/tree/master/nodeapi)
+
+
+----------------------------------------------------------------------------------------------------------------------------
