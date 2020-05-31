@@ -23,26 +23,33 @@ router.post("/", (req, res, next) => {
     .save()
     .then((result) => {
       console.log(result);
+      res.status(201).json({
+          message:"Handling Post request to /products",
+          createdProduct:result
+      });
     })
-    .catch((err) => console.log(err));
-  res.status(201).json({
-    message: "Inside POST REQUEST",
-    createdProduct: product,
-  });
+    .catch(err=>{
+      console.log(err);
+      res.status(500).json({
+        error:err
+      })
+    }); 
 });
 
 router.get("/:productID", (req, res, next) => {
   const id = req.params.productID;
-  Product.findById(id).exec().then(doc=>{
-    console.log(doc);
-    res.status(200).json(doc);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error:err
+  Product.findById(id)
+    .exec()
+    .then((doc) => {
+      console.log(doc);
+      res.status(200).json(doc);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
     });
-  });
 });
 
 router.post("/:productID", (req, res, next) => {
