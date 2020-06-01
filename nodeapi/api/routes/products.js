@@ -6,10 +6,25 @@ const Product = require("../models/products");
 
 router.get("/", (req, res, next) => {
   Product.find()
+    .select("name price _id")
     .exec()
     .then((docs) => {
-      console.log(docs);
-      res.status(200).json(docs);
+      const response = {
+        count: docs.length,
+        products: docs.map((doc) => {
+          return {
+            name: doc.name,
+            price: doc.price,
+            _id: doc._id,
+            request: {
+              type: "GET",
+              url: "http://localhost:3000/products/" + doc._id,
+            },
+          };
+        }),
+      };
+
+      res.status(200).json(response);
     })
     .catch((err) => {
       console.log(err);
@@ -20,9 +35,6 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  /**
-   * Here I can store my data by calling a constructor because we can use models as constructor
-   */
   const product = new Product({
     _id: mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -34,7 +46,15 @@ router.post("/", (req, res, next) => {
       console.log(result);
       res.status(201).json({
         message: "Handling Post request to /products",
-        createdProduct: result,
+        createdProduct: {
+          name: result.name,
+          price: result.price,
+          _id: result._id,
+          request: {
+            type: "GET",
+            url: "http://localhost:3000/products/" + result._id,
+          },
+        },
       });
     })
     .catch((err) => {
@@ -47,12 +67,19 @@ router.post("/", (req, res, next) => {
 
 router.get("/:productID", (req, res, next) => {
   const id = req.params.productID;
-  Product.findById(id)
+  Product.findById(id).select('name price _id')
     .exec()
     .then((doc) => {
       console.log("From Database", doc);
       if (doc) {
-        res.status(200).json(doc);
+        res.status(200).json({
+          product: doc,
+          request: {
+            type: "GET",
+            description: "Get all products",
+            url: "http://localhost:3000/products/",
+          },
+        });
       } else {
         res.status(404).json({
           message: "ID is not valid",
@@ -78,8 +105,18 @@ router.delete("/:productID", (req, res, next) => {
   const id = req.params.productID;
   Product.remove({ _id: id })
     .exec()
-    .then((res) => {
-      res.status(200).json(result);
+    .then((result) => {
+      res.status(200).json({
+        message: "Product deleted",
+        request: {
+          type: "POST",
+          url: "http://localhost:3000",
+          body: {
+            name: "String",
+            price: "Number",
+          },
+        },
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -103,8 +140,13 @@ router.patch("/:productID", (req, res, next) => {
   )
     .exec()
     .then((result) => {
-      console.log(result);
-      res.status(200).json(result);
+      res.status(200).json({
+        message: "Product updated",
+        request: {
+          type: "GET",
+          url: "http://localhost:3000/products/"+id,
+        },
+      });
     })
     .catch((err) => {
       console.log(err);

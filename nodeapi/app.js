@@ -18,7 +18,12 @@ app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
 
 mongoose
-  .connect("mongodb+srv://sarojshop:"+process.env.Password+"@cluster0-r5zq7.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(
+    "mongodb+srv://sarojshop:" +
+      process.env.Password +
+      "@cluster0-r5zq7.mongodb.net/test?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
   .then(() => console.log("Connect to MongoDB.."))
   .catch((err) => console.error("Could not connect to MongoDB..", err));
 
