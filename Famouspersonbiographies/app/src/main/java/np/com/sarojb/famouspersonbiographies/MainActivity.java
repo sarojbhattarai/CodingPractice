@@ -1,48 +1,89 @@
 package np.com.sarojb.famouspersonbiographies;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.JsonObject;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import javax.security.auth.login.LoginException;
 
 public class MainActivity extends AppCompatActivity {
+    DatabaseHelper databaseHelper;
     private Button button_allpeople;
     private Button button_favourite;
     private Button button_requestmore;
     private ImageView imageview_info;
-    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         databaseHelper = new DatabaseHelper(this);
-        ContentValues contentValues1 = new ContentValues();
-        contentValues1.put("name","Albert Bahadur");
-        contentValues1.put("imageUrl","https://www.nobelprize.org/images/einstein-12923-portrait-medium.jpg");
-        contentValues1.put("fieldOfWork","Physics");
-        contentValues1.put("shortDesc","Math");
-        contentValues1.put("longDesc","20th century");
-        contentValues1.put("isFavourite",1);
 
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("name","Shyam Bahadur");
-        contentValues.put("imageUrl","https://miro.medium.com/fit/c/256/256/0*vxdTA7i8MN2eMJhZ.");
-        contentValues.put("fieldOfWork","science");
-        contentValues.put("shortDesc","Genius");
-        contentValues.put("longDesc","One of the brilliant mind of 20th century");
+        RequestQueue requestQueue;
+        requestQueue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "http://www.sarojb.com.np/jsondata.json", null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray  = response.getJSONArray("allpersons");
+                            for(int i = 0;i<jsonArray.length();i++){
+                                ContentValues contentValues = new ContentValues();
+                                JSONObject jsonOb = jsonArray.getJSONObject(i);
+                                String firstname = jsonOb.getString("name");
+                                String imageUrl = jsonOb.getString("imageUrl");
+                                String  fieldOfWork = jsonOb.getString("fieldOfWork");
+                                String shortdesc = jsonOb.getString("shortdesc");
+                                String longdesc = jsonOb.getString("longdesc");
 
-        databaseHelper.insertData(contentValues1);
-        databaseHelper.insertData(contentValues);
+
+                                contentValues.put("name", firstname);
+                                contentValues.put("imageUrl", imageUrl);
+                                contentValues.put("fieldOfWork", fieldOfWork);
+                                contentValues.put("shortdesc", shortdesc);
+                                contentValues.put("longdesc", longdesc);
+                                databaseHelper.insertData(contentValues);
+
+                            }
+                            Log.e("onResponse: ", "IN response"+response.getString(""));
+                        } catch (JSONException e) {
+                            Log.e("Error", "error");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error", "onErrorResponse: ");
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+
+//        databaseHelper = new DatabaseHelper(this);
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put("name", "Albert Bahadur");
+//
+//        databaseHelper.insertData(contentValues);
 
         initViews();
         button_allpeople.setOnClickListener(new View.OnClickListener() {
@@ -55,14 +96,14 @@ public class MainActivity extends AppCompatActivity {
         button_favourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v,"OOPS Still working on this", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(v, "OOPS Still working on this", Snackbar.LENGTH_LONG).show();
             }
         });
 
         button_requestmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v,"OOPS Still working on this", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(v, "OOPS Still working on this", Snackbar.LENGTH_LONG).show();
             }
         });
         imageview_info.setOnClickListener(new View.OnClickListener() {

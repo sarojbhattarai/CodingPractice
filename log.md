@@ -79,3 +79,29 @@
 
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+### Day 6: June 01, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Complete Knowledge on Express. Read whole module. 
+
+**Thoughts:** Had difficulties while learning mongoose. It was fun.
+
+**Link to work:** [NODE API PRACTICE](https://github.com/sarojbhattarai/saroj---100-days-of-code/tree/master/nodeapi)
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+### Day 7: June 02, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Famous Person App can use json data and store information from json data to the database.
+
+**Thoughts:** Man I should have paid more attention to Database Class. It sucks when you don't know basic things.
+
+**Link to work:** [Famous Person Biographies App](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/Famouspersonbiographies)
+
+
+----------------------------------------------------------------------------------------------------------------------------

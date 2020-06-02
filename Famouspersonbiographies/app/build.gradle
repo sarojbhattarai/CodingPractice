@@ -36,6 +36,9 @@ dependencies {
     //Gson dependancy
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    //volley dependancy
+    implementation 'com.android.volley:volley:1.1.1'
+
 
     //They are already here!
     implementation 'androidx.appcompat:appcompat:1.1.0'

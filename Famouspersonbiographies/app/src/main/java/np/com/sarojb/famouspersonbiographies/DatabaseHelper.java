@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -39,8 +40,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void updateTable(int id,int value){
        String query = "UPDATE USER SET isFavourite ="+value+" WHERE id = "+id;
-        getWritableDatabase().execSQL(query);
-        Log.e("INISDE UPDATED", "updateTable: ");
+        Cursor cursor = getWritableDatabase().rawQuery(query,null);
+        while (cursor.moveToNext()){
+            FamousPersons fp = new FamousPersons();
+            Log.e("INISDE UPDATED", "updateTable: ");
+            fp.isFavourite = Integer.valueOf(cursor.getString(cursor.getColumnIndex("isFavourite")));
+            Log.e("isFavourite", " "+fp.isFavourite);
+        }
+
     }
 
 
