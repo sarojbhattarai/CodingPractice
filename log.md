@@ -105,3 +105,16 @@
 
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+### Day 8: June 03, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Real time database update. 
+
+**Thoughts:** Almost 95% of work completion on Android app. Had known the concept of callbacks and BundleInstances it would have finished today. Have very fun
+
+**Link to work:** [Famous Person Biographies App](http://https://github.com/sarojbhattarai/saroj---100-days-of-code/Famouspersonbiographies)
+
+
+----------------------------------------------------------------------------------------------------------------------------

@@ -16,7 +16,7 @@ public class FamousPersons {
     String fieldOfWork;
     String shortdesc;
     String longdesc;
-    int isFavourite = 0;
+    int isFavourite;
 
     public String getShortdesc() {
         return shortdesc;

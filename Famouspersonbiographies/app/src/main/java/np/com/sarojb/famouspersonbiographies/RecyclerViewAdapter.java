@@ -53,7 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-            return detailofpersons.size();
+        return detailofpersons.size();
     }
 
     public void setDetailofpersons(ArrayList<FamousPersons> detailofpersons) {

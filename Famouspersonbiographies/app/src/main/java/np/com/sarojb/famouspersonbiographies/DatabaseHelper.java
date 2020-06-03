@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     String databaseQuery = "CREATE TABLE \"USER\" (\n" +
-            "\t\"id\"\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+            "\t\"id\"\tINTEGER PRIMARY KEY,\n" +
             "\t\"name\"\tTEXT UNIQUE,\n " +
             "\t\"imageUrl\"\tTEXT,\n" +
             "\t\"fieldOfWork\"\tTEXT,\n" +
@@ -38,16 +38,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         getWritableDatabase().insert("USER", "", contentValues);
     }
 
-    public void updateTable(int id,int value){
-       String query = "UPDATE USER SET isFavourite ="+value+" WHERE id = "+id;
-        Cursor cursor = getWritableDatabase().rawQuery(query,null);
-        while (cursor.moveToNext()){
-            FamousPersons fp = new FamousPersons();
-            Log.e("INISDE UPDATED", "updateTable: ");
-            fp.isFavourite = Integer.valueOf(cursor.getString(cursor.getColumnIndex("isFavourite")));
-            Log.e("isFavourite", " "+fp.isFavourite);
-        }
-
+    public void updateData(int favouriteId, int id){
+        getWritableDatabase().execSQL("UPDATE USER SET isFavourite = "+favouriteId+" WHERE id = "+id);
     }
 
 

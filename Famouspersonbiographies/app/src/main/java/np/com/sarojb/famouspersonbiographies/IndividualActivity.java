@@ -2,13 +2,20 @@ package np.com.sarojb.famouspersonbiographies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
+import java.util.ArrayList;
 
 public class IndividualActivity extends AppCompatActivity {
 
@@ -17,7 +24,7 @@ public class IndividualActivity extends AppCompatActivity {
     TextView individual_textview_name;
     TextView individual_textview_shortdesc;
     TextView individual_textview_longdesc;
-    ImageView individual_imageview_favouritebutton;
+    SwitchCompat switchbutton;
     DatabaseHelper databaseHelper;
 
     @Override
@@ -41,26 +48,22 @@ public class IndividualActivity extends AppCompatActivity {
         individual_textview_name.setText(databaseHelper.getFamousPersonFromDatabase().get(id).getName());
         individual_textview_shortdesc.setText(databaseHelper.getFamousPersonFromDatabase().get(id).getShortdesc());
         individual_textview_longdesc.setText(databaseHelper.getFamousPersonFromDatabase().get(id).getLongdesc());
-        final int a = databaseHelper.getFamousPersonFromDatabase().get(id).getIsFavourite();
-        if(a == 0){
-            individual_imageview_favouritebutton.setImageResource(R.drawable.fav_before_clicked);
+        ArrayList<FamousPersons> arrayList = databaseHelper.getFamousPersonFromDatabase();
+        final int b = arrayList.get(id).isFavourite;
+        if(b == 0){
+            switchbutton.setChecked(false);
         }
-        if(a == 1){
-            individual_imageview_favouritebutton.setImageResource(R.drawable.favourite_after_clicked);
+        else {
+            switchbutton.setChecked(true);
         }
-
-        individual_imageview_favouritebutton.setOnClickListener(new View.OnClickListener() {
+        switchbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (a == 0) {
-                    individual_imageview_favouritebutton.setImageResource(R.drawable.favourite_after_clicked);
-                    int isFavou = 1;
-                    databaseHelper.updateTable(id, isFavou);
+                if(switchbutton.isChecked()){
+                    databaseHelper.updateData(1,id);
                 }
                 else {
-                    individual_imageview_favouritebutton.setImageResource(R.drawable.fav_before_clicked);
-                    int isFavou = 0;
-                    databaseHelper.updateTable(id, isFavou);
+                    databaseHelper.updateData(0,id);
                 }
             }
         });
@@ -73,7 +76,6 @@ public class IndividualActivity extends AppCompatActivity {
         individual_textview_name = findViewById(R.id.individual_textview_name);
         individual_textview_shortdesc = findViewById(R.id.individual_textview_shortdesc);
         individual_textview_longdesc = findViewById(R.id.individual_textview_longdesc);
-        individual_imageview_favouritebutton = findViewById(R.id.individual_imageview_favouritebutton);
-
+        switchbutton = findViewById(R.id.switchbutton);
     }
 }

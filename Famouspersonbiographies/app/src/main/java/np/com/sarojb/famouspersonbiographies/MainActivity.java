@@ -15,17 +15,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.security.auth.login.LoginException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
@@ -39,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         databaseHelper = new DatabaseHelper(this);
+        ArrayList<FamousPersons> arrayList = new ArrayList<>();
+        arrayList = databaseHelper.getFamousPersonFromDatabase();
+        final int a=  arrayList.size();
 
         RequestQueue requestQueue;
         requestQueue = Volley.newRequestQueue(this);
@@ -47,26 +48,32 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray  = response.getJSONArray("allpersons");
-                            for(int i = 0;i<jsonArray.length();i++){
+                            JSONArray jsonArray = response.getJSONArray("allpersons");
+                            int b = a;
+                            for (int i = 0; i < jsonArray.length(); i++) {
                                 ContentValues contentValues = new ContentValues();
                                 JSONObject jsonOb = jsonArray.getJSONObject(i);
                                 String firstname = jsonOb.getString("name");
                                 String imageUrl = jsonOb.getString("imageUrl");
-                                String  fieldOfWork = jsonOb.getString("fieldOfWork");
+                                String fieldOfWork = jsonOb.getString("fieldOfWork");
                                 String shortdesc = jsonOb.getString("shortdesc");
                                 String longdesc = jsonOb.getString("longdesc");
-
-
-                                contentValues.put("name", firstname);
-                                contentValues.put("imageUrl", imageUrl);
-                                contentValues.put("fieldOfWork", fieldOfWork);
-                                contentValues.put("shortdesc", shortdesc);
-                                contentValues.put("longdesc", longdesc);
-                                databaseHelper.insertData(contentValues);
+                                try{
+                                    contentValues.put("id",b+1);
+                                    contentValues.put("name", firstname);
+                                    contentValues.put("imageUrl", imageUrl);
+                                    contentValues.put("fieldOfWork", fieldOfWork);
+                                    contentValues.put("shortdesc", shortdesc);
+                                    contentValues.put("longdesc", longdesc);
+                                    databaseHelper.insertData(contentValues);
+                                    b += 1;
+                                }
+                                catch (Exception e){
+                                    e.printStackTrace();
+                                }
 
                             }
-                            Log.e("onResponse: ", "IN response"+response.getString(""));
+                            Log.e("onResponse: ", "IN response" + response.getString(""));
                         } catch (JSONException e) {
                             Log.e("Error", "error");
                         }
