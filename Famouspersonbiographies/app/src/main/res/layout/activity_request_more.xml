@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RequestMoreActivity">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/requestedperson"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Famous Person (e.g. Thomas Alba Edison)"
+            android:inputType="text"
+            ></EditText>
+        <Button
+            android:id="@+id/RequestButton"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:text="@string/request"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"></Button>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -66,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
                                     contentValues.put("shortdesc", shortdesc);
                                     contentValues.put("longdesc", longdesc);
                                     databaseHelper.insertData(contentValues);
-                                    b += 1;
                                 }
                                 catch (Exception e){
                                     e.printStackTrace();
                                 }
+                                b += 1;
 
                             }
                             Log.e("onResponse: ", "IN response" + response.getString(""));
@@ -110,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
         button_requestmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "OOPS Still working on this", Snackbar.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, RequestMoreActivity.class);
+                startActivity(intent);
             }
         });
         imageview_info.setOnClickListener(new View.OnClickListener() {

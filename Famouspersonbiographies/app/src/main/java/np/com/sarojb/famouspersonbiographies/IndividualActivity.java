@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -42,13 +43,13 @@ public class IndividualActivity extends AppCompatActivity {
         }
     }
 
-
     private void setData(FamousPersons famousPersons, final int id) {
         Glide.with(this).asBitmap().load(databaseHelper.getFamousPersonFromDatabase().get(id).getImageUrl()).into(individual_imageview_photo);
         individual_textview_name.setText(databaseHelper.getFamousPersonFromDatabase().get(id).getName());
         individual_textview_shortdesc.setText(databaseHelper.getFamousPersonFromDatabase().get(id).getShortdesc());
         individual_textview_longdesc.setText(databaseHelper.getFamousPersonFromDatabase().get(id).getLongdesc());
         ArrayList<FamousPersons> arrayList = databaseHelper.getFamousPersonFromDatabase();
+        final Bundle bundle = new Bundle();
         final int b = arrayList.get(id).isFavourite;
         if(b == 0){
             switchbutton.setChecked(false);
@@ -61,15 +62,16 @@ public class IndividualActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(switchbutton.isChecked()){
                     databaseHelper.updateData(1,id);
+
+                    bundle.putBoolean("isfavourite",switchbutton.isChecked());
                 }
                 else {
                     databaseHelper.updateData(0,id);
+                    bundle.putBoolean("isfavourite",switchbutton.isChecked());
                 }
             }
         });
-
     }
-
 
     private void initView() {
         individual_imageview_photo = findViewById(R.id.individual_imageview_photo);
@@ -78,4 +80,5 @@ public class IndividualActivity extends AppCompatActivity {
         individual_textview_longdesc = findViewById(R.id.individual_textview_longdesc);
         switchbutton = findViewById(R.id.switchbutton);
     }
+
 }
