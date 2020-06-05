@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <TableRow android:gravity="center">
+
+        <Button
+            android:id="@+id/button_1"
+            android:onClick="click_button"
+            android:layout_width="40pt"
+            android:layout_margin="3dp"
+            android:layout_height="40pt"></Button>
+
+        <Button
+            android:id="@+id/button_2"
+            android:onClick="click_button"
+            android:layout_width="40pt"
+            android:layout_margin="3dp"
+            android:layout_height="40pt"></Button>
+
+        <Button
+            android:id="@+id/button_3"
+            android:onClick="click_button"
+            android:layout_width="40pt"
+            android:layout_margin="3dp"
+            android:layout_height="40pt"></Button>
+    </TableRow>
+
+    <TableRow android:gravity="center">
+
+        <Button
+            android:id="@+id/button_4"
+            android:onClick="click_button"
+            android:layout_margin="3dp"
+            android:layout_width="40pt"
+            android:layout_height="40pt"></Button>
+
+        <Button
+            android:id="@+id/button_5"
+            android:onClick="click_button"
+            android:layout_margin="3dp"
+            android:layout_width="40pt"
+            android:layout_height="40pt"></Button>
+
+        <Button
+            android:id="@+id/button_6"
+            android:onClick="click_button"
+            android:layout_margin="3dp"
+            android:layout_width="40pt"
+            android:layout_height="40pt"></Button>
+    </TableRow>
+
+    <TableRow android:gravity="center">
+
+        <Button
+            android:id="@+id/button_7"
+            android:onClick="click_button"
+            android:layout_margin="3dp"
+            android:layout_width="40pt"
+            android:layout_height="40pt"></Button>
+
+        <Button
+            android:id="@+id/button_8"
+            android:onClick="click_button"
+            android:layout_margin="3dp"
+            android:layout_width="40pt"
+            android:layout_height="40pt"></Button>
+
+        <Button
+            android:id="@+id/button_9"
+            android:onClick="click_button"
+            android:layout_margin="3dp"
+            android:layout_width="40pt"
+            android:layout_height="40pt"></Button>
+    </TableRow>
+</TableLayout>
