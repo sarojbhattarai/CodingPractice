@@ -1,14 +1,26 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost/movies", { useNewUrlParser: true })
+  .connect("mongodb://localhost/movies", { useNewUrlParser: true,useUnifiedTopology: true })
   .then(() => console.log("connected to MongoDB"))
   .catch((err) => console.log("Error", err));
 
 const moviesSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true, minlength: 3, maxlength: 255 },
   imdb: String,
-  tags: [String],
+  tags: {
+    type: Array,
+    validate: {
+      isAsync: true,
+      validator: function (v, callback) {
+        setTimeout(() => {
+          const result = v && v.length > 3;
+          callback(result);
+        }, 3000);
+      },
+      message: "A movie must have a tag",
+    },
+  },
   date: { type: Date, default: Date.now },
   isPublished: Boolean,
 });
@@ -19,18 +31,22 @@ const Movies = mongoose.model("Movies", moviesSchema);
  * In order to add movies
  */
 
-// async function addMovies(){
-//     const movies = new Movies({
-//         name: "God Father",
-//         imdb: "9.2",
-//         tags: ["Crime", "Thriller"],
-//         isPublished: true,
-//       });
+async function addMovies() {
+  const movies = new Movies({
+    name: "The curious case of Benjamin Button",
+    imdb: "9.2",
+    tags: "",
+    isPublished: true,
+  });
+  try {
+    const result = await movies.save();
+    console.log(result);
+  } catch (error) {
+    console.log("error", error);
+  }
+}
 
-//        const result = await movies.save();
-//        console.log(result);
-// }
-// addMovies();
+addMovies();
 
 /**
  * In order to retrive movies
@@ -80,23 +96,25 @@ const Movies = mongoose.model("Movies", moviesSchema);
 
 // updateMovie('5edba275b1571b293060022e');
 
+// async function updateMovie(id) {
+//   const result = await Movies.update(
+//     { _id: id },
+//     {
+//       $set: {
+//         name: "Interesteller",
+//         isPublished: false,
+//       },
+//     }
+//   );
+//   console.log(result);
+// }
 
-async function updateMovie(id){
- const result =  await Movies.update({_id:id},{
-    $set: {
-      name:"Interesteller",
-      isPublished:false
-    }
-  });
-  console.log(result);
-}
-
-updateMovie('5edba275b1571b293060022e');
+// updateMovie("5edba275b1571b293060022e");
 
 // async function deleteMovie(id){
 //   const result=  await Movies.deleteOne({_id:id}); // to delete many use deleteMany
 //   console.log(result);
 
 //  }
- 
+
 //  deleteMovie('5edba275b1571b293060022e');

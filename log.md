@@ -156,4 +156,17 @@ Day 11: June 06, 2020
 **Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
 
 
+---------------------------------------------------------------------------------------------------------------------------
+
+Day 12: June 07, 2020
+
 ----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: Building a movie api for movie renting accoriding to genres
+
+**Thoughts:** Learnt data validatin. Should learn Modeling Relationships Between Connected Data
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---------------------------------------------------------------------------------------------------------------------------
