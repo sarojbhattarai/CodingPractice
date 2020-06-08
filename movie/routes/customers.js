@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const {Genre, validate} = require("../models/genres");
-const Joi = require("joi");
 const mongoose = require("mongoose");
+const {Customers, validate} = require("../models/customers");
+
 
 router.get("/", async (req, res) => {
-  const genre = await Genre.find().sort("name");
-  res.send(genre);
+  const customer = await Customers.find().sort("name");
+  res.send(customer);
 });
 
 router.post("/", async (req, res) => {
@@ -14,22 +14,24 @@ router.post("/", async (req, res) => {
   if (error) {
     return res.status(400).send(error.details[0].message);
   }
-  let genre = new Genre({
+  let customer = new Customers({
     name: req.body.name,
+    email:req.body.email,
+    isGold:req.body.isGold
   });
-  genre = await genre.save().catch(err =>{
-    console.log("Error while posting", err)
-  }); 
+  customer = await customer.save().catch((err) => {
+    console.log("Error while posting", err);
+  });
 
-  res.send(genre);
+  res.send(customer);
 });
 
 router.get("/:id", async (req, res) => {
-  const genre = await Genre.findById(req.params.id);
-  if (!genre) {
+  const customer = await Customers.findById(req.params.id);
+  if (!customer) {
     res.status(404).send("Error 404 on get");
-  } 
-  res.send(genre);
+  }
+  res.send(customer);
 });
 
 router.put("/:id", async (req, res) => {
@@ -38,30 +40,31 @@ router.put("/:id", async (req, res) => {
     return res.status(404).send(error.details[0].message);
   }
 
-  const genre = await Genre.findByIdAndUpdate(
+  const customer = await Customers.findByIdAndUpdate(
     req.params.id,
     {
-      name: req.body.name,
+        name: req.body.name,
+        email:req.body.email,
+        isGold:req.body.isGold
     },
     {
       new: true,
     }
   );
 
-  if (!genre) {
+  if (!customer) {
     return res.status(404).send("Error 404 on PUT");
   }
-  res.send(genre);
+  res.send(customer);
 });
 
 router.delete("/:id", async (req, res) => {
-  const genre = await Genre.findByIdAndRemove(req.params.id);
-  if (!genre) {
+  const customer = await Customers.findByIdAndRemove(req.params.id);
+  if (!customer) {
     return res.status(404).send("Error 404 on delete");
   }
-  res.send(genre);
+  res.send(customer);
 });
-
 
 
 module.exports = router;

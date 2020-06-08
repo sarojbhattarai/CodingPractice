@@ -3,9 +3,11 @@ const express = require("express");
 const Joi = require("joi");
 const app = express();
 const genres = require("./routes/genres");
+const customers = require("./routes/customers");
 app.use(express.json());
 
 app.use("/routes/genres", genres);
+app.use("/routes/customers", customers);
 
 mongoose
   .connect("mongodb://localhost/movies", {
