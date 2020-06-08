@@ -170,3 +170,16 @@ Day 12: June 07, 2020
 
 
 ---------------------------------------------------------------------------------------------------------------------------
+
+Day 13: June 08, 2020
+
+----------------------------------------------------------------------------------------------------------------------------
+
+**Today's Progress**: In movie I have added the customers. Now we can have customers details like name and email. As well as if they are from goldPlate.
+
+**Thoughts:** Had really fun today working on api. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---------------------------------------------------------------------------------------------------------------------------
