@@ -183,3 +183,16 @@ Day 13: June 08, 2020
 
 
 ---------------------------------------------------------------------------------------------------------------------------
+
+Day 14: June 09, 2020
+
+---
+
+**Today's Progress**: Learnt about modelling relationship between connected database. Still working on the movie api for rental.
+
+**Thoughts:** Today is a lazy day. Did coding just barely for a hour. Need to finish /api/rentals and need to learn Authorization and Authentication.
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
