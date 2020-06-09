@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const {Genre, validate} = require("../models/genres");
-const Joi = require("joi");
 const mongoose = require("mongoose");
 
 router.get("/", async (req, res) => {

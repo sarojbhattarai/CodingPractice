@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const { Movie, validate } = require("../models/movies");
+const { Genre } = require("../models/genres");
 const mongoose = require("mongoose");
-const {Customers, validate} = require("../models/customers");
 
 router.get("/", async (req, res) => {
-  const customer = await Customers.find().sort("name");
-  res.send(customer);
+  const movie = await Movie.find().sort("title");
+  res.send(movie);
 });
 
 router.post("/", async (req, res) => {
@@ -13,24 +14,27 @@ router.post("/", async (req, res) => {
   if (error) {
     return res.status(400).send(error.details[0].message);
   }
-  let customer = new Customers({
-    name: req.body.name,
-    email:req.body.email,
-    isGold:req.body.isGold
+  let movie = new Movie({
+    title: req.body.title,
+    genre: {
+      _id: genre._id,
+      name: genre.name,
+    },
+    numberInStocks: req.body.numberInStocks,
   });
-  customer = await customer.save().catch((err) => {
+  movie = await movie.save().catch((err) => {
     console.log("Error while posting", err);
   });
 
-  res.send(customer);
+  res.send(movie);
 });
 
 router.get("/:id", async (req, res) => {
-  const customer = await Customers.findById(req.params.id);
-  if (!customer) {
+  const movie = await Movie.findById(req.params.id);
+  if (!movie) {
     res.status(404).send("Error 404 on get");
   }
-  res.send(customer);
+  res.send(movie);
 });
 
 router.put("/:id", async (req, res) => {
@@ -39,31 +43,33 @@ router.put("/:id", async (req, res) => {
     return res.status(404).send(error.details[0].message);
   }
 
-  const customer = await Customers.findByIdAndUpdate(
+  const movie = await Movie.findByIdAndUpdate(
     req.params.id,
     {
-        name: req.body.name,
-        email:req.body.email,
-        isGold:req.body.isGold
+      title: req.body.title,
+      genre: {
+        _id: genre._id,
+        name: genre.name,
+      },
+      numberInStocks: req.body.numberInStocks,
     },
     {
       new: true,
     }
   );
 
-  if (!customer) {
+  if (!movie) {
     return res.status(404).send("Error 404 on PUT");
   }
-  res.send(customer);
+  res.send(movie);
 });
 
 router.delete("/:id", async (req, res) => {
-  const customer = await Customers.findByIdAndRemove(req.params.id);
-  if (!customer) {
+  const movie = await Movie.findByIdAndRemove(req.params.id);
+  if (!movie) {
     return res.status(404).send("Error 404 on delete");
   }
-  res.send(customer);
+  res.send(movie);
 });
-
 
 module.exports = router;
