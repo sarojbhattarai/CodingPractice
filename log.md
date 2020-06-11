@@ -196,3 +196,29 @@ Day 14: June 09, 2020
 
 
 ---
+
+Day 15: June 10, 2020
+
+---
+
+**Today's Progress**: Learnt more about modelling relationship between connected database in MongoDB
+
+**Thoughts:** Studied a lot about authentication and authorisation
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+Day 16: June 11, 2020
+
+---
+
+**Today's Progress**: Learn't two phase commit on MongoDB. Used Fawn to mirror two phase commit. 
+
+**Thoughts:** Had very difficulty time on coding. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---

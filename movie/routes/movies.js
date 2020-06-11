@@ -22,10 +22,7 @@ router.post("/", async (req, res) => {
     },
     numberInStocks: req.body.numberInStocks,
   });
-  movie = await movie.save().catch((err) => {
-    console.log("Error while posting", err);
-  });
-
+  movie = await movie.save();
   res.send(movie);
 });
 
