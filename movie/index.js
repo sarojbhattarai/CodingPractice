@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
 const app = express();
 const genres = require("./routes/genres");
 const customers = require("./routes/customers");
+const rentals = require("./routes/rentals");
 const movies = require("./routes/movies");
 
 mongoose
@@ -23,6 +25,7 @@ app.use(express.json());
 app.use("/routes/genres", genres);
 app.use("/routes/customers", customers);
 app.use("/routes/movies", movies);
+app.use("/routes/rentals", rentals);
 
 const PORT = process.env.PORT || 3000;
 
