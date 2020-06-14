@@ -222,3 +222,45 @@ Day 16: June 11, 2020
 
 
 ---
+
+
+Day 17: June 12, 2020
+
+---
+
+**Today's Progress**: Finished modelling relationship between connected data
+
+**Thoughts:** I learnt almost basics of modelling relationship between data. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+
+Day 18: June 13, 2020
+
+---
+
+**Today's Progress**: I created user model so that I can handle users
+
+**Thoughts:** It was awesome
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+
+Day 19: June 14, 2020
+
+---
+
+**Today's Progress**: I created route for regesterin users. 
+
+**Thoughts:** It's so easy. Just need to type the whole damn thing again. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
