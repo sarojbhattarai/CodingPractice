@@ -1,4 +1,7 @@
 # 100 Days Of Code - Log
+---
+template: base
+---
 
 ### Day 0: May 26, 2020
 
@@ -257,6 +260,19 @@ Day 19: June 14, 2020
 ---
 
 **Today's Progress**: I created route for regesterin users. 
+
+**Thoughts:** It's so easy. Just need to type the whole damn thing again. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+Day 12: June 15, 2020
+
+---
+
+**Today's Progress**: I learn't about lodash. Also learn't about bcrypt. Check the image for hashed password.
 
 **Thoughts:** It's so easy. Just need to type the whole damn thing again. 
 
