@@ -8,6 +8,7 @@ const customers = require("./routes/customers");
 const rentals = require("./routes/rentals");
 const movies = require("./routes/movies");
 const users = require("./routes/users");
+const auth = require("./routes/auth");
 
 mongoose
   .connect("mongodb://localhost/movies", {
@@ -28,7 +29,7 @@ app.use("/routes/customers", customers);
 app.use("/routes/movies", movies);
 app.use("/routes/rentals", rentals);
 app.use("/routes/users", users);
-
+app.use("/routes/auth",auth);
 
 const PORT = process.env.PORT || 3000;
 
