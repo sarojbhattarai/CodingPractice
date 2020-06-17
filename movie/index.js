@@ -11,10 +11,10 @@ const users = require("./routes/users");
 const auth = require("./routes/auth");
 const config = require('config');
 
-if (!config.get('jwtPrivateKey')){
-  console.error('ERROR!! JWT KEY IS NOT DEFINED');
-  process.exit(1);
-}
+// if (!config.get('jwtPrivateKey')){
+//   console.error('ERROR!! JWT KEY IS NOT DEFINED');
+//   process.exit(1);
+// }
 mongoose
   .connect("mongodb://localhost/movies", {
     useNewUrlParser: true,

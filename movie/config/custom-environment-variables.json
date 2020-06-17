@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey":"movie_jwtPrivateKey"
-}
+    "jwtPrivateKey": "movie_jwtPrivateKey"
+  }
+  
