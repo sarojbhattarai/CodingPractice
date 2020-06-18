@@ -268,13 +268,50 @@ Day 19: June 14, 2020
 
 ---
 
-Day 12: June 15, 2020
+Day 20: June 15, 2020
 
 ---
 
 **Today's Progress**: I learn't about lodash. Also learn't about bcrypt. Check the image for hashed password.
 
 **Thoughts:** It's so easy. Just need to type the whole damn thing again. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+Day 21: June 16, 2020
+
+---
+
+**Today's Progress**: Worked on authentication
+
+**Thoughts:** Coding is fun. Hard time understanding some concepts of js. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+Day 22: June 17, 2020
+
+---
+
+**Today's Progress**: Worked on authorisation like adding routes and stuffs
+
+**Thoughts:** Had fun working
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+Day 23: June 18, 2020
+
+---
+
+**Today's Progress**: worked on getting individual users and securing routes
+
+**Thoughts:** Gonna finish auth and authentication tomorrow. 
 
 **Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
 
