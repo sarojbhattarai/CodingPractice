@@ -2,6 +2,7 @@ const { Rental, validate } = require("../models/rentals");
 const { Movie } = require("../models/movies");
 const { Customers } = require("../models/customers");
 const Fawn = require("fawn");
+const auth = require("../middleware/auth");
 
 const mongoose = require("mongoose");
 const express = require("express");
@@ -61,7 +62,7 @@ router.post("/", async (req, res) => {
   
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id",auth, async (req, res) => {
   const rental = await Rental.findById(req.params.id);
 
   if (!rental)
