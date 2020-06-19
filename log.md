@@ -317,3 +317,16 @@ Day 23: June 18, 2020
 
 
 ---
+
+Day 24: June 19, 2020
+
+---
+
+**Today's Progress**: Added admin roles
+
+**Thoughts:** Finished auth and authentication.
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
