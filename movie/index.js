@@ -1,3 +1,4 @@
+const error = require("./middleware/error");
 const mongoose = require("mongoose");
 const express = require("express");
 const Joi = require("joi");
@@ -9,7 +10,7 @@ const rentals = require("./routes/rentals");
 const movies = require("./routes/movies");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
-const config = require('config');
+const config = require("config");
 
 // if (!config.get('jwtPrivateKey')){
 //   console.error('ERROR!! JWT KEY IS NOT DEFINED');
@@ -35,6 +36,8 @@ app.use("/routes/movies", movies);
 app.use("/routes/rentals", rentals);
 app.use("/routes/users", users);
 app.use("/routes/auth", auth);
+
+app.use(error);
 
 const PORT = process.env.PORT || 3000;
 
