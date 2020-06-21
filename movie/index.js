@@ -20,8 +20,8 @@ const config = require("config");
 //   process.exit(1);
 // }
 
-winston.add(winston.transports.File, { filename: "logfile.log" });
-winston.add(winston.transports.MongoDB, {db:'mongodb://localhost/movies',level:'error'});
+winston.add(new winston.transports.File({ filename: 'logfile.log' }));
+winston.add(new winston.transports.MongoDB({db:'mongodb://localhost/movies',level:'error'}));
 
 mongoose
   .connect("mongodb://localhost/movies", {
