@@ -1,4 +1,6 @@
 require("express-async-errors");
+const winston = require("winston");
+require("winston-mongodb");
 const error = require("./middleware/error");
 const mongoose = require("mongoose");
 const express = require("express");
@@ -17,6 +19,10 @@ const config = require("config");
 //   console.error('ERROR!! JWT KEY IS NOT DEFINED');
 //   process.exit(1);
 // }
+
+winston.add(winston.transports.File, { filename: "logfile.log" });
+winston.add(winston.transports.MongoDB, {db:'mongodb://localhost/movies',level:'error'});
+
 mongoose
   .connect("mongodb://localhost/movies", {
     useNewUrlParser: true,

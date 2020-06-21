@@ -2,8 +2,7 @@ const { Rental, validate } = require("../models/rentals");
 const { Movie } = require("../models/movies");
 const { Customers } = require("../models/customers");
 const Fawn = require("fawn");
-const auth = require("../middleware/auth");
-
+const auth = require("../middleware/auth"); 
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
