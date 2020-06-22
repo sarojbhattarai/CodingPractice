@@ -14,14 +14,31 @@ const movies = require("./routes/movies");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 const config = require("config");
+const { exitOnError } = require("winston");
 
 // if (!config.get('jwtPrivateKey')){
 //   console.error('ERROR!! JWT KEY IS NOT DEFINED');
 //   process.exit(1);
 // }
+winston.handleExceptions(
+  new winston.transports.File({
+    filename: "uncaughtExceptions.log",
+  })
+);
 
-winston.add(new winston.transports.File({ filename: 'logfile.log' }));
-winston.add(new winston.transports.MongoDB({db:'mongodb://localhost/movies',level:'error'}));
+process.on("unhandledRejection", (ex) => {
+  throw ex;
+});
+
+winston.add(new winston.transports.File({ filename: "logfile.log" }));
+winston.add(
+  new winston.transports.MongoDB({
+    db: "mongodb://localhost/movies",
+    level: "error",
+  })
+);
+
+// throw new Error("Something has just failed ");
 
 mongoose
   .connect("mongodb://localhost/movies", {
