@@ -330,3 +330,42 @@ Day 24: June 19, 2020
 
 
 ---
+
+Day 25: June 20, 2020
+
+---
+
+**Today's Progress**: Handling errors like logging errors started today
+
+**Thoughts:** Learnt about handling rejected promises and stuffs
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+Day 26: June 21, 2020
+
+---
+
+**Today's Progress**: Continued on Hanling and Logging errors. 
+
+**Thoughts:** Used Winston for handling and logging errors
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+Day 27: June 22, 2020
+
+---
+
+**Today's Progress**: Learnt about uncaught exceptions and unhandled promise rejections
+
+**Thoughts:** Had fun working today
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
