@@ -369,3 +369,16 @@ Day 27: June 22, 2020
 
 
 ---
+
+Day 28: June 23, 2020
+
+---
+
+**Today's Progress**: Completed Handling and logging errors. Separated modules (Ofcourse, readibility counts). Used winston for logging infos and stuffs
+
+**Thoughts:** Wonderful to complete API using Node. I need to learn testings. 
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
