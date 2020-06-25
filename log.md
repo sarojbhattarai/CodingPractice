@@ -382,3 +382,29 @@ Day 28: June 23, 2020
 
 
 ---
+
+Day 29: June 24, 2020
+
+---
+
+**Today's Progress**: Web scraping of NEPSE (Nepal Stock Exchange)
+
+**Thoughts:** Used beautifulsoup4 to scrape nepse website to get some infromation of stock marked  
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
+
+Day 30: June 25, 2020
+
+---
+
+**Today's Progress**: Started learning React. 
+
+**Thoughts:** Studied JavaScript and React some time.
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+
+---
