@@ -408,3 +408,18 @@ Day 30: June 25, 2020
 
 
 ---
+
+Day 31: June 26, 2020
+
+---
+
+**Today's Progress**: Building a movie app in React. 
+
+**Thoughts:** Learnt components.
+
+**Link to work:** [FIND TODAY'S WORK] (http://https://github.com/sarojbhattarai/saroj---100-days-of-code)
+
+** REFERENCES:** React Course by MOSH HAMEDANI 
+
+
+---
