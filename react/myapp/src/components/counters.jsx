@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Counter from "./counter";
+import Counter from "./counter";  
 
 class Counters extends Component {
   state = {
@@ -21,12 +21,16 @@ class Counters extends Component {
       c.value = 0;
       return c;
     });
-    this.setState({ counters });
+    this.setState({ counters }); 
   };
 
-  handleIncrement = counter => {
-    console.log(counter);
-  }
+  handleIncrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    this.setState({ counters });
+  };
 
   render() {
     return (
@@ -41,7 +45,7 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
-            onIncrement = {this.handleIncrement}
+            onIncrement={this.handleIncrement}
             counter={counter}
           />
         ))}
