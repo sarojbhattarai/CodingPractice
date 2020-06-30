@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Counter from "./counter";  
+import Counter from "./counter";
 
 class Counters extends Component {
   state = {
@@ -21,7 +21,7 @@ class Counters extends Component {
       c.value = 0;
       return c;
     });
-    this.setState({ counters }); 
+    this.setState({ counters });
   };
 
   handleIncrement = (counter) => {
@@ -36,10 +36,10 @@ class Counters extends Component {
     return (
       <div>
         <button
-          onClick={this.handleClick}
+          onClick={this.handleReset}
           className="btn btn-primary btn-sm m-2"
         >
-          RESET
+          Reset
         </button>
         {this.state.counters.map((counter) => (
           <Counter
