@@ -4,7 +4,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471815",
     title: "Dumb and Dumber",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 6,
     dailyRentalRate: 2.5,
     publishDate: "2018-01-03T19:04:28.809Z",
@@ -27,7 +27,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd47181a",
     title: "Number 23",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Thriller" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
     numberInStock: 7,
     dailyRentalRate: 3.5,
     liked: true,
