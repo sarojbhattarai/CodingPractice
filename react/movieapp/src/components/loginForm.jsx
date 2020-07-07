@@ -1,24 +1,66 @@
 import React, { Component } from "react";
+import Input from "./common/input";
+
 class LoginForm extends Component {
+  state = {
+    account: {
+      username: "",
+      password: "",
+    },
+    errors: {},
+  };
+
+  validate = () => {
+    const { account } = this.state;
+    const errors = {};
+    if (account.username.trim() === "")
+      errors.username = "Username is Required";
+    if (account.password.trim() === "")
+      errors.password = "Password is Required";
+    return Object.keys(errors).length === 0 ? null : errors;
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = this.validate();
+    this.setState({ errors: errors || {} });
+    if (errors) return;
+
+    console.log("submitted");
+  };
+
+  handleChange = ({ currentTarget: input }) => {
+    const account = { ...this.state.account };
+    account[input.name] = input.value;
+    this.setState({ account });
+  };
+
   render() {
+    const { account, errors } = this.state;
     return (
       <div className="row">
-        <div class="col"></div>
+        <div className="col"></div>
         <div className="col-6">
           <h1>Login</h1>
-          <form>
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input id="username" type="text" className="form-control" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input id="password" type="text" className="form-control" />
-            </div>
+          <form onSubmit={this.handleSubmit}>
+            <Input
+              name="username"
+              onChange={this.handleChange}
+              value={account.username}
+              label="Username"
+              error={errors.username}
+            />
+            <Input
+              name="password"
+              onChange={this.handleChange}
+              value={account.password}
+              label="Password"
+              error={errors.password}
+            />
             <button className="btn btn-primary">Login</button>
           </form>
         </div>
-        <div class="col"></div>
+        <div className="col"></div>
       </div>
     );
   }
