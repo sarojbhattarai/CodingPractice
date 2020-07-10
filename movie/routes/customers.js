@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const {Customers, validate} = require("../models/customers");
+const { Customers, validate } = require("../models/customers");
 
 router.get("/", async (req, res) => {
   const customer = await Customers.find().sort("name");
@@ -15,8 +15,8 @@ router.post("/", async (req, res) => {
   }
   let customer = new Customers({
     name: req.body.name,
-    email:req.body.email,
-    isGold:req.body.isGold
+    email: req.body.email,
+    isGold: req.body.isGold,
   });
   customer = await customer.save().catch((err) => {
     console.log("Error while posting", err);
@@ -42,9 +42,9 @@ router.put("/:id", async (req, res) => {
   const customer = await Customers.findByIdAndUpdate(
     req.params.id,
     {
-        name: req.body.name,
-        email:req.body.email,
-        isGold:req.body.isGold
+      name: req.body.name,
+      email: req.body.email,
+      isGold: req.body.isGold,
     },
     {
       new: true,
@@ -64,6 +64,5 @@ router.delete("/:id", async (req, res) => {
   }
   res.send(customer);
 });
-
 
 module.exports = router;
