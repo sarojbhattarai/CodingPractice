@@ -4,8 +4,10 @@ const mongoose = require("mongoose");
 const { Student, validate } = require("../models/students");
 const { Department } = require("../models/departments");
 
-router.get("/", (req, res) => {
-  res.send("Inside Get of Students");
+router.get("/", async (req, res) => {
+  const student = await Student.find().sort("name");
+  if (!student) res.status(404).send("not found");
+  res.send(student);
 });
 
 router.post("/", async (req, res) => {

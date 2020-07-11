@@ -3,8 +3,9 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const { Department, validate } = require("../models/departments");
 
-router.get("/", (req, res) => {
-  res.send("Inside Departments");
+router.get("/", async (req, res) => {
+  const department = await Department.find().sort("name");
+  res.send(department);
 });
 
 router.post("/", async (req, res) => {

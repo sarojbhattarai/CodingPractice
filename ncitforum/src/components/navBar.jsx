@@ -24,7 +24,7 @@ class NavBar extends Component {
               Home
             </Link>
             <NavLink className="nav-item nav-link" to="/login">
-              Login
+              Department
             </NavLink>
           </div>
         </div>
